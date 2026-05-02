@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SFD Incident Card</title>
+        <style type='text/css'>
+            body {
+                font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+                font-size: 1.2em;
+            }
+
+            form {
+                background:#cccccc;
+                border-radius: 10px;
+                width: 100%;
+                padding: .4em;
+            }
+
+            input {
+                margin: .2em;
+            }
+
+            section {
+                display: flex;
+                justify-content: flex-end;
+                padding: .2em;
+            }
+
+
+            .input-container {
+                width: 100%;
+                margin: auto;
+                text-align: left;
+                padding: .2em;
+            }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            background-color: rgb(220, 220, 220);
+        }
+
+        @media screen and (width < 650px) {
+
+            label,
+            input,
+            textarea,
+            select,
+            button {
+                font-size: .7em;
+            }
+
+            input {
+                margin: 0.2em 0.2em;
+            }
+
+            input[type="checkbox"] {
+                width: 1em;
+                height: 1em;
+            }
+
+            .formTitleHeader {
+                font-size: 2em;
+            }
+
+            .bibEntries {
+                min-height: 3em;
+                max-height: 6em;
+            }
+
+            .msgHeaderTitle {
+                font-size: 0.7em;
+            }
+
+            .addressInput {
+                min-width: 65%;
+            }
+
+            .block-line-div {
+                display: block;
+            }
+
+            .readOnlyText {
+                font-size: 0.6em;
+            }
+
+            #closePopBtn {
+                margin-left: 1rem;
+                margin-top: 0.5rem;
+            }
+            .input-container {
+                width: 100%;
+                margin: auto;
+                text-align: left;
+                padding: .05em;
+            }
+        }
+
+        @media screen and (width >=650px) {
+
+            label,
+            input,
+            textarea,
+            select,
+            button {
+                font-size: 1em;
+            }
+
+            input {
+                margin: 0.3em 0.3em;
+            }
+
+            input[type="checkbox"] {
+                width: 1.2em;
+                height: 1.2em;
+            }
+
+            .formTitleHeader {
+                font-size: 3em;
+            }
+
+            .bibEntries {
+                min-height: 4em;
+                max-height: 10em;
+            }
+
+            .msgHeaderTitle {
+                font-size: 1.1em;
+            }
+
+            .addressInput {
+                max-width: 75%;
+            }
+
+            .block-line-div {
+                display: inline;
+            }
+
+            #closePopBtn {
+                margin-left: 75vw;
+                margin-top: 0.5rem;
+            }
+            .input-container {
+                width: 100%;
+                margin: auto;
+                text-align: left;
+                padding: .1em;
+            }
+        }
+
+        hr {
+            height: 0.1em;
+            width: 100%;
+        }
+
+        textarea {
+            width: 80%;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            padding: 0.2rem;
+        }
+
+        input {
+            padding: 0.2em;
+            border-radius: 0.5rem;
+        }
+
+        input[type='submit'] {
+            font-weight: bold;
+            background-color: rgb(113, 169, 253);
+        }
+
+        input[type='button'],
+        input[type='submit'] {
+            color: rgb(10, 10, 10);
+            padding-left: 0.8em;
+            padding-right: 0.8em;
+        }
+
+        textarea,
+        select {
+            padding: 0.3em 0.3em;
+            border: solid 0.15em rgb(10, 10, 10);
+            border-radius: 0.5rem;
+        }
+
+        input:hover,
+        textarea:hover,
+        select:hover {
+            cursor: pointer;
+            opacity: 0.8;
+            outline: solid 2px rgb(255, 153, 0);
+        }
+
+        input::placeholder {
+            color: red;
+            opacity: 0.4
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: solid 3px rgb(255, 153, 0);
+        }
+        .close:hover,
+        .close:active,
+        .close:focus {
+            box-shadow: 0rem 0rem 0.5rem 0.5rem;
+            background-color: rgb(192, 192, 192);
+            color: rgb(10, 10, 10);
+        }
+
+        .close span {
+            text-indent: -200em;
+            display: block;
+        }
+
+        #comment {
+            width: 80%;
+            display: block;
+            margin: auto;
+        }
+
+        #commentLabel {
+            display: block;
+            margin: .3em auto;
+        }
+
+        #MessageNumber {
+            max-width: 10em;
+        }
+        .div-across-auto-align {
+            width: 100%;
+            margin: auto;
+            text-align: center;
+        }
+
+        .formTitleHeader {
+            display: block;
+            text-align: center;
+            color: rgb(255, 0, 0);
+            font-style: italic;
+        }
+        .msgHeaderTitle {
+            color: rgb(255, 0, 0);
+            text-align: center;
+        }
+        .clearDataButton {
+            color: rgb(10, 10, 10);
+            background-color: rgb(255, 153, 0);
+            font-weight: bold;
+        }
+        </style>
+    </head>
+
+    <body>
+        <section id="close">
+            <form
+                onsubmit="return confirm('To complete your form submission, click OK and close the browser tab. You will return to the new message window so you can post your message to the outbox.');"
+                method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+                <label class="formTitleHeader">Seattle Fire Department Incident Card</label>
+
+                </div>
+
+                <hr />
+
+                <div class="msgHeaderTitle">Message Header</div>
+
+                <div class="input-container">
+                    <label for="mycall">From (TACTICAL / my callsign):</label>
+                    <input type="text" name="mycall" id="myCallsign"
+                        required placeholder="Station 00 / AA7XXX" value=""/>
+                </div>
+                <div class="input-container">
+                    <label for="tocall">To (Winlink address - callsign or email):</label>
+                    <input type="text" name="tocall" id="toCallsign"
+                        required placeholder="W7ACS" value=""/>
+                </div>
+                <div class="input-container">
+                    <label for="acsno">ACS Message Number:</label>
+                    <input type="text" name="acsno" id="ACSno"
+                        required placeholder="STN00-0001" value=""/>
+                </div>
+                 <div class="input-container">
+                    <label for="Exer">This is an exercise:</label>
+                    <input type="checkbox" name="Exer" id="ExerciseCheckbox" checked />
+                    <input type="hidden" name="IsExer" id="IsExer" />
+                </div>
+
+                <hr />
+
+                <div class="msgHeaderTitle">SFD Incident Card Entry</div>
+
+
+                <div class="input-container">
+                    <label for="company">CO:</label>
+                    <input type="text" name="company" id="company"
+                        size="5" value=""/>
+                    <label for="time">TIME:</label>
+                    <input type="text" name="time" id="Time"
+                        size="5" value=""/>
+                </div>
+                <hr />
+
+                 <div class="input-container">
+                    <label for="location"><b>LOCATION:</b><br></label>
+                    <textarea rows="3" cols="55"
+                           name="location" id="location"></textarea>
+                </div>
+                <hr />
+                <div class="section">
+                    <b>CONDITIONS:</b>
+                </div>
+                <div class="input-container">
+                    <label for="collapse-risk">Collapse --- risk:</label>
+                    <input type="checkbox" name="collapse-risk"
+                        value="collapse-risk"
+                        onclick="if(document.getElementById('IsCollapse_risk').value =='')
+                        {document.getElementById('IsCollapse_risk').value = 'X'}
+                        else { document.getElementById('IsCollapse_risk').value = '';}"/>
+                    <input type="hidden" name="IsCollapse_risk"
+                        id="IsCollapse_risk" />
+
+                    <label for="collapse-partial">partial:</label>
+                    <input type="checkbox" name="collapse-partial"
+                        value="collapse-partial"
+                        onclick="if(document.getElementById('IsCollapse_partial').value =='')
+                        {document.getElementById('IsCollapse_partial').value = 'X'}
+                        else { document.getElementById('IsCollapse_partial').value = '';}"/>
+                    <input type="hidden" name="IsCollapse_partial"
+                        id="IsCollapse_partial" />
+
+                    <label for="collapse-full">full:</label>
+                    <input type="checkbox" name="collapse-full"
+                        value="collapse-full"
+                        onclick="if(document.getElementById('IsCollapse_full').value =='')
+                        {document.getElementById('IsCollapse_full').value = 'X'}
+                        else { document.getElementById('IsCollapse_full').value = '';}"/>
+                    <input type="hidden" name="IsCollapse_full"
+                        id="IsCollapse_full" />
+                </div>
+                <div class="input-container">
+                    <label for="fire">Fire:</label>
+                    <input type="checkbox" name="fire"  value="fire"
+                     onclick="if(document.getElementById('IsFire').value =='')
+                     {document.getElementById('IsFire').value = 'X'}
+                     else { document.getElementById('IsFire').value = '';}"/>
+                    <input type="hidden" name="IsFire" id="IsFire" />
+                </div>
+                <div class="input-container">
+                    <label for="fuel-gas-water">Fuel/Gas/Water:</label>
+                    <input type="checkbox" name="fuel-gas-water" value="fuel-gas-water"
+                     onclick="if(document.getElementById('IsFGW').value =='')
+                     {document.getElementById('IsFGW').value = 'X'}
+                     else { document.getElementById('IsFGW').value = '';}"/>
+                    <input type="hidden" name="IsFGW" id="IsFGW" />
+                </div>
+                <div class="input-container">
+                    <label for="hazmat">HAZMAT:</label>
+                    <input type="checkbox" name="hazmat" value="hazmat"
+                     onclick="if(document.getElementById('IsHazmat').value =='')
+                     {document.getElementById('IsHazmat').value = 'X'}
+                     else { document.getElementById('IsHazmat').value = '';}"/>
+                    <input type="hidden" name="IsHazmat" id="IsHazmat" />
+                </div>
+                <div class="input-container">
+                    <label for="hazmat">Landslide:</label>
+                    <input type="checkbox" name="landslide" value="landslide"
+                     onclick="if(document.getElementById('IsLandslide').value =='')
+                     {document.getElementById('IsLandslide').value = 'X'}
+                     else { document.getElementById('IsLandslide').value = '';}"/>
+                    <input type="hidden" name="IsLandslide" id="IsLandslide" />
+                </div>
+                <div class="input-container">
+                    <label for="other">Other:</label>
+                    <input type="checkbox" name="other"  value="other"
+                     onclick="if(document.getElementById('IsOther').value =='')
+                     {document.getElementById('IsOther').value = 'X'}
+                     else { document.getElementById('Isother').value = '';}"/>
+                    <input type="hidden" name="IsOther" id="IsOther" />
+                    <label for="other_desc"></label>
+                    <input type="text" name="other_desc" id="other_desc" value=""/>
+                </div>
+                <hr />
+                <div class="section">
+                    <b>LEVELS (resource needs):</b>
+                </div>
+                  <div class="input-container">
+                    <label for="levels_city">CITY:</label>
+                    <input type="text" name="levels_city" id="levels_city"
+                        size="5" value=""/>
+                    <label for="levels_bat">BATTALION:</label>
+                    <input type="text" name="levels_bat" id="levels_bat"
+                        size="5" value=""/>
+                    <label for="levels_company">COMPANY:</label>
+                    <input type="text" name="levels_company" id="levels_company"
+                        size="5" value=""/>
+                </div>
+                <hr />
+                <div class="input-container">
+                    <label for="actions"><b>ACTIONS & NEEDS:<br></b></label>
+                    <textarea rows="5" cols="55"
+                           name="actions" id="actions"></textarea>
+                </div>
+                <div class="input-container">
+                    <label for="cardid">SFD incident card number:</label>
+                    <font size=+3><b>B</b></font><input type="text" name="cardB" id="CardB" size="1"
+                        maxlength="1" value=""/>
+                    -<input type="text" name="cardid" id="CardID" size="3"
+                        maxlength="3" value=""/>
+                     <input type="text" name="cardid2" id="CardID2" size="1"
+                        maxlength="1" value=""/>
+                </div>
+	        <div class="input-container">
+                <input type="submit" name="Submit" value="Submit" />
+
+                <input type="button" name="SaveButton" id="saveButton"
+                    value="Save Data" />
+                <input type="button" name="LoadButton" id="loadButton"
+                    onclick="document.getElementById('txtfiletoread').click();"
+                    value="Load Data" />
+            </div>
+
+            <input type="file" id="txtfiletoread" accept=".txt" />
+
+            </form>
+
+        </div>
+
+        <script>
+
+
+            function normalizeCallsign(callsign) {
+                var callsignTrimmed = callsign.trim();
+                var callsignUpper = callsignTrimmed.toUpperCase();
+                console.log("Upper-casing callsign:", callsignUpper);
+                return callsignUpper;
+            }
+
+            var myCallsignElement = document.getElementById('myCallsign');
+            myCallsignElement.addEventListener('blur', function () {
+                this.value = normalizeCallsign(this.value);
+            });
+
+            var toCallsignElement = document.getElementById('toCallsign');
+            toCallsignElement.addEventListener('blur', function () {
+                this.value = normalizeCallsign(this.value);
+            });
+
+            function getDateTimeStamp() {
+                let d = new Date();
+                let thisYear = d.getFullYear();
+                let thisMonth = d.getMonth() + 1;
+                let thisDay = d.getDate();
+                let hours = (d.getHours() < 10 ? '0' : '') + d.getHours();
+                let minutes = (d.getMinutes() < 10 ? '0' : '') + d.getMinutes();
+
+                thisMonth = thisMonth < 10 ? thisMonth = '0' + thisMonth : thisMonth;
+                thisDay = thisDay < 10 ? thisDay = '0' + thisDay : thisDay;
+
+                var dateTimeStamp = `${thisYear}-${thisMonth}-${thisDay}-${hours}_${minutes}`;
+                console.log('returning date-time stamp: ', dateTimeStamp);
+                return dateTimeStamp;
+            }
+
+            function createJsonObjectFromFormElements() {
+                const jsonObject = {
+                    MyCallsign: document.getElementById('myCallsign').value,
+                    ToCallsign: document.getElementById('toCallsign').value,
+                    ACSno: document.getElementById('ACSno').value,
+                    IsAnExerciseText: document.getElementById('IsExer').value,
+                    company: document.getElementById('company').value,
+                    Time: document.getElementById('Time').value,
+                    location: document.getElementById('location').value,
+                    IsCollapse_risk: document.getElementById('IsCollapse_risk').value,
+                    IsCollapse_partial: document.getElementById('IsCollapse_partial').value,
+                    IsCollapse_full: document.getElementById('IsCollapse_full').value,
+                    IsFire: document.getElementById('IsFire').value,
+                    IsHazmat: document.getElementById('IsHazmat').value,
+                    IsLandslide: document.getElementById('IsLandslide').value,
+                    IsOther: document.getElementById('IsOther').value,
+                    other_desc: document.getElementById('other_desc').value,
+                    levels_city: document.getElementById('levels_city').value,
+                    levels_bat: document.getElementById('levels_bat').value,
+                    levels_company: document.getElementById('levels_company').value,
+                    actions: document.getElementById('actions').value,
+                    CardB: document.getElementById('CardB').value,
+                    CardID: document.getElementById('CardID').value,
+                    CardID2: document.getElementById('CardID2').value
+                };
+
+                console.log('returning jsonobject:', jsonObject);
+                return jsonObject;
+            }
+
+            function saveFormInputElementsToFile() {
+                let dateTimeStamp = getDateTimeStamp();
+                let filenameToSaveAs = `SFD-card-saved-data-${dateTimeStamp}.txt`;
+
+                let formElementsAsJson = createJsonObjectFromFormElements();
+                let textToWrite = JSON.stringify(formElementsAsJson, null, 2);
+                let textFileAsBlob = new Blob([textToWrite], {type: 'application/json'});
+
+                let downloadLink = document.createElement('a');
+                downloadLink.download = filenameToSaveAs;
+                downloadLink.href = URL.createObjectURL(textFileAsBlob);
+
+                downloadLink.onclick = function (e) {
+                    document.body.removeChild(e.target);
+                };
+
+                downloadLink.style.display = 'none';
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+            }
+
+            document.getElementById('saveButton').addEventListener('click', () => {
+                saveFormInputElementsToFile();
+            });
+
+            // constant values for repeated use
+            const IsAnExerciseText = "*** THIS IS AN EXERCISE ***";
+            const NotAnExerciseText = "";
+
+            document.getElementById('ExerciseCheckbox').addEventListener('click', () => {
+                // ref hidden element
+                const isExerElement = document.getElementById('IsExer');
+                // checkbox.checked has a non-boolean startup state of 'undefined'
+                if(this.checked || this.checked === undefined) {
+                    this.checked = false;
+                    // hidden element value is text (a string)
+                    isExerElement.value = NotAnExerciseText;
+                } else {
+                    this.checked = true;
+                    isExerElement.value = IsAnExerciseText;
+                }
+            });
+
+            window.addEventListener('load', function () {
+                document.getElementById('IsExer').value = IsAnExerciseText;
+                document.getElementById('MyCallsign').value = myCallsign;
+            });
+
+
+        window.addEventListener('load', function () {
+
+            // Check the support for the File API
+            if (window.File && window.FileReader && window.FileList && window.Blob) {
+                let fileSelected = GetElementById('txtfiletoread');
+
+                // begin fileSelected Change Event Listener
+                fileSelected.addEventListener('change', function (e) {
+                    // Set the extension for the file
+                    let fileExtension = /text.*/;
+                    // Get the file object
+                    let fileTobeRead = fileSelected.files[0];
+                    // Check if the extension matches
+                    if (fileTobeRead.type.match(fileExtension)) {
+                        // Initialize the FileReader object to read the file data
+                        let fileReader = new FileReader();
+
+                        fileReader.onload = function (e) {
+                            document.getElementById('parseme').value = fileReader.result;
+
+                            try {
+                                let jsonData = JSON.parse(document.getElementById('parseme').value);
+                                // console.log('filereader.onload json parse of parseme element value: ', jsonData);
+                                populateForm(jsonData);
+                            } catch (err) {
+                                console.error('An error occurred while parsing the JSON data: ', err);
+                            }
+                        };
+
+                        fileReader.readAsText(fileTobeRead);
+                    } else {
+                        alert('Please select a text file');
+                    }
+                });
+                // end fileSelected Change Event Listener
+            } else {
+                alert('Files are not supported');
+            }
+
+        });
+
+        </script>
+    </body>
+</html>
