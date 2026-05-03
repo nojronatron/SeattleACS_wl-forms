@@ -64,10 +64,6 @@
                 font-size: 2em;
             }
 
-            .bibEntries {
-                min-height: 3em;
-                max-height: 6em;
-            }
 
             .msgHeaderTitle {
                 font-size: 0.7em;
@@ -77,18 +73,6 @@
                 min-width: 65%;
             }
 
-            .block-line-div {
-                display: block;
-            }
-
-            .readOnlyText {
-                font-size: 0.6em;
-            }
-
-            #closePopBtn {
-                margin-left: 1rem;
-                margin-top: 0.5rem;
-            }
             .input-container {
                 width: 100%;
                 margin: auto;
@@ -120,11 +104,6 @@
                 font-size: 3em;
             }
 
-            .bibEntries {
-                min-height: 4em;
-                max-height: 10em;
-            }
-
             .msgHeaderTitle {
                 font-size: 1.1em;
             }
@@ -133,14 +112,7 @@
                 max-width: 75%;
             }
 
-            .block-line-div {
-                display: inline;
-            }
 
-            #closePopBtn {
-                margin-left: 75vw;
-                margin-top: 0.5rem;
-            }
             .input-container {
                 width: 100%;
                 margin: auto;
@@ -158,13 +130,6 @@
             width: 80%;
         }
 
-        ul {
-            list-style-type: none;
-        }
-
-        li {
-            padding: 0.2rem;
-        }
 
         input {
             padding: 0.2em;
@@ -235,11 +200,6 @@
         #MessageNumber {
             max-width: 10em;
         }
-        .div-across-auto-align {
-            width: 100%;
-            margin: auto;
-            text-align: center;
-        }
 
         .formTitleHeader {
             display: block;
@@ -251,11 +211,7 @@
             color: rgb(255, 0, 0);
             text-align: center;
         }
-        .clearDataButton {
-            color: rgb(10, 10, 10);
-            background-color: rgb(255, 153, 0);
-            font-weight: bold;
-        }
+
         </style>
     </head>
 
@@ -395,8 +351,8 @@
                     <label for="levels_city">CITY:</label>
                     <input type="text" name="levels_city" id="levels_city"
                         size="5" value=""/>
-                    <label for="levels_bat">BATTALION:</label>
-                    <input type="text" name="levels_bat" id="levels_bat"
+                    <label for="levels_battalion">BATTALION:</label>
+                    <input type="text" name="levels_battalion" id="levels_battalion"
                         size="5" value=""/>
                     <label for="levels_company">COMPANY:</label>
                     <input type="text" name="levels_company" id="levels_company"
@@ -453,6 +409,11 @@
                 this.value = normalizeCallsign(this.value);
             });
 
+            var ACSnoElement = document.getElementById('ACSno');
+            ACSnoElement.addEventListener('blur', function () {
+                this.value = normalizeCallsign(this.value);
+            });
+
             function getDateTimeStamp() {
                 let d = new Date();
                 let thisYear = d.getFullYear();
@@ -488,7 +449,7 @@
                     IsOther: document.getElementById('IsOther').value,
                     other_desc: document.getElementById('other_desc').value,
                     levels_city: document.getElementById('levels_city').value,
-                    levels_bat: document.getElementById('levels_bat').value,
+                    levels_battalion: document.getElementById('levels_battalion').value,
                     levels_company: document.getElementById('levels_company').value,
                     actions: document.getElementById('actions').value,
                     CardB: document.getElementById('CardB').value,
@@ -544,51 +505,9 @@
             });
 
             window.addEventListener('load', function () {
-                document.getElementById('IsExer').value = IsAnExerciseText;
-                document.getElementById('MyCallsign').value = myCallsign;
+                // NEED TO ADD
             });
 
-
-        window.addEventListener('load', function () {
-
-            // Check the support for the File API
-            if (window.File && window.FileReader && window.FileList && window.Blob) {
-                let fileSelected = GetElementById('txtfiletoread');
-
-                // begin fileSelected Change Event Listener
-                fileSelected.addEventListener('change', function (e) {
-                    // Set the extension for the file
-                    let fileExtension = /text.*/;
-                    // Get the file object
-                    let fileTobeRead = fileSelected.files[0];
-                    // Check if the extension matches
-                    if (fileTobeRead.type.match(fileExtension)) {
-                        // Initialize the FileReader object to read the file data
-                        let fileReader = new FileReader();
-
-                        fileReader.onload = function (e) {
-                            document.getElementById('parseme').value = fileReader.result;
-
-                            try {
-                                let jsonData = JSON.parse(document.getElementById('parseme').value);
-                                // console.log('filereader.onload json parse of parseme element value: ', jsonData);
-                                populateForm(jsonData);
-                            } catch (err) {
-                                console.error('An error occurred while parsing the JSON data: ', err);
-                            }
-                        };
-
-                        fileReader.readAsText(fileTobeRead);
-                    } else {
-                        alert('Please select a text file');
-                    }
-                });
-                // end fileSelected Change Event Listener
-            } else {
-                alert('Files are not supported');
-            }
-
-        });
 
         </script>
     </body>
