@@ -5,13 +5,14 @@ Work in progress to create a Winlink form to automate the process described
 in this page from the Seattle ACS Action Plan for a recent SFD Windshield
 Exercise:
 
-![](images/SFD_card_example.jpg)
+<img src="images/SFD_card_example.jpg" width=400/>
+
 
 ## Another example incident card
 
 This image has better resolution, note the faint writing:
 
-![](images/IMG_1217.jpeg)
+<img src="images/IMG_1217.jpeg" width=300/>
 
 ## Draft of 2026-05-04
 
