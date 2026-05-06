@@ -12,6 +12,7 @@ Batallion <var cardB> Incident Card <var cardid>  --- ACS msg # <var acsno>
 CO: <var company>   TIME: <var time>
 
 ------------------------
+PLACE NAME / BUILDING TYPE: <var PlaceNameBldgType>
 LOCATION:
 <var location>
 
@@ -38,7 +39,7 @@ ACTIONS & NEEDS:
 <var actions>
 
 ------------------------
-CARD NUMBER: B<var cardB>-<var cardid>   <var Status>
+CARD NUMBER: B<var cardB>-<var cardid>   Status: <var Status>
 
 ========================
 
