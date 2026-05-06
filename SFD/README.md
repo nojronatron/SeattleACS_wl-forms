@@ -50,7 +50,10 @@ will see the email message text, as illustrated below.
 
 ### Resulting Winlink message:
 
-<img src="images/SFDversion2.png" width=600/>
+<img src="images/SFDversion3.png" width=600/>
+
+[cropped]
+
 
 ### What gets saved:
 
