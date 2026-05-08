@@ -1,7 +1,7 @@
 # Winlink Form for SFD Incident Card
 
-See [this README
-page](https://rjleveque.github.io/SeattleACS_wl-forms/SFD/)
+Scroll down on [this README
+page](https://github.com/rjleveque/SeattleACS_wl-forms/tree/main/SFD)
 for background information and some screen shots.
 
 ## Try it out
