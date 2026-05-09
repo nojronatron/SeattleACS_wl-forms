@@ -70,7 +70,7 @@ The code is in this Github repository:
 
 The `.html` and `.txt` files are also in [this zip
 file](https://faculty.washington.edu/rjl/hamradio/SFD_incident_card-form.zip).
-You are welcome to test it, but not that this is still Work in Progress,
+You are welcome to test it, but note that this is still Work in Progress,
 and not yet intended for general distribution to the ACS membership.
 Better versions and more information on installation will be distributed
 later.
