@@ -1,6 +1,6 @@
 # Winlink Form for SFD Incident Card
 
-Scroll down on [this README
+Scroll down on [the repository README
 page](https://github.com/rjleveque/SeattleACS_wl-forms/tree/main/SFD)
 for background information and some screen shots.
 
@@ -15,46 +15,18 @@ data file and save it to your
 own computer with a filename based on the date and time.  Later you could
 upload one or more of these to a computer running Winlink for submission.
 
-### Save the html file on a laptop, tablet, or cell phone
-
-Trying out the form linked above requires an internet connection to the
-computer where it is hosted.
-
-For field applications you might want to have this html file on your own
-laptop, tablet, or cell phone so that you can input data and save the files
-even if you don't have Winlink (e.g. on a Mac or iOS).  The files can then
-be transferred later (e.g. using bluetooth or a USB thumbdrive)
-to a different computer for submission into Winlink and sending. 
-
-This could be useful for radio operators who are out on a route with SFD and
-do not have Winlink access until they return to the station, or to operators
-at a station who are dealing with many cards so that the computer hooked to
-the radio for transmission is not tied up by the need to type in the data.
-
-The html form could also potentially be used directly by SFD personnel to
-input data in the field for later transfer to a radio operator.
-
-- The html file isn't yet ready for distribution, but will appear here.
-
-
 ## Installing as a custom form in Winlink
 
-If you want to use this form in Winlink you need to copy two files to the
+To use this form in Winlink, you need to copy two files to the
 proper directory\
  [`RMS Express\Global Folders\Templates`]:
 
 - `SFD_incident_card-form.html` is the html form that you see when you
-  compose a message.  (This is essentially the same file you can open in any 
-  web browser as described above, but with the "Submit" button working.)
+  compose a message.  (This is the same file that is opened on a website
+  if you test this with the link above.)
 
 - `SFD_incident_card-template.txt` is a file that tells Winlink how to
   compose a Winlink message based on the data in the form.
-
-- [`SFD_incident_card-draft260508.zip`](https://faculty.washington.edu/rjl/hamradio/SFD_incident_card-draft260508.zip)
-  is a zip file that contains the two files (draft versions).
-
-  **WARNING:** This is a test version and a better version will be
-  available in the future.
 
 Eventually a third file will also be included:
 
@@ -63,9 +35,37 @@ Eventually a third file will also be included:
   Even without this form, you can see all the information in the main body
   of the incoming Winlink message.
 
+You can download these files from the [Github
+repository](https://github.com/rjleveque/SeattleACS_wl-forms/tree/main/SFD)
+for testing, but they are not fully functional yet.
+Versions for members to use will be provided later.
+
+
+## Save the html file on a laptop, tablet, or cell phone
+
+Experimenting with the test form
+linked above requires an internet connection to the
+computer where the html file it is hosted.
+
+For field applications, you might want to have this html file on your own
+laptop, tablet, or cell phone so that you can input data and save the files
+even if you don't have Winlink (e.g. on a Mac or iOS).  The resulting JSON
+files can then
+be transferred later (e.g. using bluetooth or a USB thumbdrive)
+to a different computer for submission into Winlink and sending. 
+
+This could be useful for radio operators who are out on a route with SFD and
+do not have Winlink access until they return to the station, or for operators
+at a station who are dealing with many cards, so that the computer hooked to
+the radio for transmission is not bogged down by the need to type in the data.
+
+The html form could also potentially be used directly by SFD personnel to
+input data in the field for later transfer to a radio operator.
+
+
 ## The code
 
-The code is all in this Github repository:
+The code is in this Github repository:
 [github.com/rjleveque/SeattleACS_wl-forms](https://github.com/rjleveque/SeattleACS_wl-forms/)
 
 If you have problems with it, or have suggestions, you are welcome to [raise an

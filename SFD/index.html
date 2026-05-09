@@ -618,7 +618,7 @@ a { text-decoration: none; }
 <main id="winlink-form-for-sfd-incident-card">
 <h1 class="title">Winlink Form for SFD Incident Card</h1>
 
-<p>Scroll down on <a class="reference external" href="https://github.com/rjleveque/SeattleACS_wl-forms/tree/main/SFD">this README
+<p>Scroll down on <a class="reference external" href="https://github.com/rjleveque/SeattleACS_wl-forms/tree/main/SFD">the repository README
 page</a>
 for background information and some screen shots.</p>
 <section id="try-it-out">
@@ -630,41 +630,18 @@ can &quot;Save Data&quot; and it should create a small JSON (JavaScript Object N
 data file and save it to your
 own computer with a filename based on the date and time.  Later you could
 upload one or more of these to a computer running Winlink for submission.</p>
-<section id="save-the-html-file-on-a-laptop-tablet-or-cell-phone">
-<h3>Save the html file on a laptop, tablet, or cell phone</h3>
-<p>Trying out the form linked above requires an internet connection to the
-computer where it is hosted.</p>
-<p>For field applications you might want to have this html file on your own
-laptop, tablet, or cell phone so that you can input data and save the files
-even if you don't have Winlink (e.g. on a Mac or iOS).  The files can then
-be transferred later (e.g. using bluetooth or a USB thumbdrive)
-to a different computer for submission into Winlink and sending.</p>
-<p>This could be useful for radio operators who are out on a route with SFD and
-do not have Winlink access until they return to the station, or to operators
-at a station who are dealing with many cards so that the computer hooked to
-the radio for transmission is not tied up by the need to type in the data.</p>
-<p>The html form could also potentially be used directly by SFD personnel to
-input data in the field for later transfer to a radio operator.</p>
-<ul class="simple">
-<li><p>The html file isn't yet ready for distribution, but will appear here.</p></li>
-</ul>
-</section>
 </section>
 <section id="installing-as-a-custom-form-in-winlink">
 <h2>Installing as a custom form in Winlink</h2>
-<p>If you want to use this form in Winlink you need to copy two files to the
-proper directory [RMS Express\Global Folders\Templates]:</p>
-<ul>
+<p>To use this form in Winlink, you need to copy two files to the
+proper directory<br />
+[<span class="docutils literal">RMS Express\Global Folders\Templates</span>]:</p>
+<ul class="simple">
 <li><p><span class="docutils literal"><span class="pre">SFD_incident_card-form.html</span></span> is the html form that you see when you
-compose a message.  (This is essentially the same file you can open in any
-web browser as described above, but with the &quot;Submit&quot; button working.)</p></li>
+compose a message.  (This is the same file that is opened on a website
+if you test this with the link above.)</p></li>
 <li><p><span class="docutils literal"><span class="pre">SFD_incident_card-template.txt</span></span> is a file that tells Winlink how to
 compose a Winlink message based on the data in the form.</p></li>
-<li><p><a class="reference external" href="https://faculty.washington.edu/rjl/hamradio/SFD_incident_card-draft260508.zip"><span class="docutils literal"><span class="pre">SFD_incident_card-draft260508.zip</span></span></a>
-is a zip file that contains the two files (draft versions).</p>
-<p><strong>WARNING:</strong> This is a test version and a better version will be
-available in the future.</p>
-</li>
 </ul>
 <p>Eventually a third file will also be included:</p>
 <ul class="simple">
@@ -673,10 +650,32 @@ message using this form and reformat it as a nice webpage for viewing.
 Even without this form, you can see all the information in the main body
 of the incoming Winlink message.</p></li>
 </ul>
+<p>You can download these files from the <a class="reference external" href="https://github.com/rjleveque/SeattleACS_wl-forms/tree/main/SFD">Github
+repository</a>
+for testing, but they are not fully functional yet.
+Versions for members to use will be provided later.</p>
+</section>
+<section id="save-the-html-file-on-a-laptop-tablet-or-cell-phone">
+<h2>Save the html file on a laptop, tablet, or cell phone</h2>
+<p>Experimenting with the test form
+linked above requires an internet connection to the
+computer where the html file it is hosted.</p>
+<p>For field applications, you might want to have this html file on your own
+laptop, tablet, or cell phone so that you can input data and save the files
+even if you don't have Winlink (e.g. on a Mac or iOS).  The resulting JSON
+files can then
+be transferred later (e.g. using bluetooth or a USB thumbdrive)
+to a different computer for submission into Winlink and sending.</p>
+<p>This could be useful for radio operators who are out on a route with SFD and
+do not have Winlink access until they return to the station, or for operators
+at a station who are dealing with many cards, so that the computer hooked to
+the radio for transmission is not bogged down by the need to type in the data.</p>
+<p>The html form could also potentially be used directly by SFD personnel to
+input data in the field for later transfer to a radio operator.</p>
 </section>
 <section id="the-code">
 <h2>The code</h2>
-<p>The code is all in this Github repository:
+<p>The code is in this Github repository:
 <a class="reference external" href="https://github.com/rjleveque/SeattleACS_wl-forms/">github.com/rjleveque/SeattleACS_wl-forms</a></p>
 <p>If you have problems with it, or have suggestions, you are welcome to <a class="reference external" href="https://github.com/rjleveque/SeattleACS_wl-forms/issues">raise an
 issue</a> (which
