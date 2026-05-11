@@ -6,7 +6,7 @@ for background information and some screen shots.
 
 ## Try it out
 
-[Click here](https://rjleveque.github.io/SeattleACS_wl-forms/SFD/SFD_incident_card-form.html)
+[CLICK HERE](https://rjleveque.github.io/SeattleACS_wl-forms/SFD/SFD_incident_card-form.html)
 to open an html form in your browser that you can try filling out.
 
 In this version the "Submit" and "Load Data" buttons do not work, but you
@@ -38,7 +38,7 @@ Eventually a third file will also be included:
 You can download these files from the [Github
 repository](https://github.com/rjleveque/SeattleACS_wl-forms/tree/main/SFD)
 for testing, but they are not fully functional yet.
-Versions for members to use will be provided later.
+Versions for members to use will be provided later, along with more detailed instructions.
 
 
 ## Save the html file on a laptop, tablet, or cell phone
@@ -52,7 +52,7 @@ laptop, tablet, or cell phone so that you can input data and save the files
 even if you don't have Winlink (e.g. on a Mac or iOS).  The resulting JSON
 files can then
 be transferred later (e.g. using bluetooth or a USB thumbdrive)
-to a different computer for submission into Winlink and sending. 
+to a different computer for submission into Winlink and sending.
 
 This could be useful for radio operators who are out on a route with SFD and
 do not have Winlink access until they return to the station, or for operators
@@ -96,3 +96,8 @@ code and submit a pull request.
 The forms would benefit from more work by someone with javascript
 experience; this is not my native language!
 
+### Update based on feedback from the May ACS meeting
+
+Some additional ideas for additions and modifications are summarized in [Issue #4](https://github.com/rjleveque/SeattleACS_wl-forms/issues/4).
+
+ACS members can also find a slide deck and brief instructional video in the Google Drive folder for the May 2026 meeting.
