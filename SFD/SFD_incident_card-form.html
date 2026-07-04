@@ -212,6 +212,264 @@
             text-align: center;
         }
 
+        .print-only {
+            display: none;
+        }
+
+        @media print {
+            @page {
+                size: letter portrait;
+                margin: 0.4in;
+            }
+
+            body > section#close {
+                display: none;
+            }
+
+            #printSheet.print-only {
+                display: block;
+            }
+
+            .card-rotate-wrap {
+                width: 4in;
+                height: 6in;
+                margin: 0 auto 0.3in auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #printCard {
+                flex-shrink: 0;
+                width: 6in;
+                height: 4in;
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0.08in;
+                border: 2px solid #000;
+                font-family: Arial, Helvetica, sans-serif;
+                color: #000;
+                background: #fff;
+                transform: rotate(0deg);
+            }
+
+            #printCard .card-row {
+                display: flex;
+                border-bottom: 1px solid #000;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+
+            #printCard .card-row:last-child {
+                border-bottom: none;
+            }
+
+            #printCard .card-row-top { height: 0.55in; }
+            #printCard .card-row-location { height: 0.6in; }
+            #printCard .card-row-conditions { height: 0.95in; }
+            #printCard .card-row-actions { height: 1.2in; }
+            #printCard .card-row-footer { height: 0.5in; align-items: center; }
+
+            #printCard .card-box {
+                border-right: 1px solid #000;
+                width: 0.9in;
+                display: grid;
+                grid-template-rows: 1fr auto;
+                justify-items: center;
+                font-size: 8pt;
+            }
+
+            #printCard .card-box.time {
+                background: #ccc;
+            }
+
+            #printCard .card-box-label {
+                font-size: 7pt;
+                font-weight: bold;
+            }
+
+            #printCard .card-box-value {
+                font-size: 9pt;
+                word-wrap: break-word;
+                white-space: pre-wrap;
+            }
+
+            #printCard .card-box > .card-box-value {
+                grid-row: 1;
+                align-self: center;
+                font-size: 13pt;
+            }
+
+            #printCard .card-box > .card-box-label {
+                grid-row: 2;
+                align-self: end;
+            }
+
+            #printCard .card-pnbt {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                padding: 0.05in;
+            }
+
+            #printCard .card-pnbt .card-box-value {
+                font-size: 13pt;
+            }
+
+            #printCard .card-pnbt .card-box-label {
+                font-size: 8pt;
+                text-align: right;
+            }
+
+            #printCard .card-side-label {
+                writing-mode: vertical-rl;
+                transform: rotate(180deg);
+                font-size: 7pt;
+                font-weight: bold;
+                width: 0.25in;
+                border-right: 1px solid #000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+
+            #printCard .card-row-location .card-box-value,
+            #printCard .card-row-actions .card-box-value {
+                flex: 1;
+                padding: 0.05in;
+                font-size: 12pt;
+            }
+
+            #printCard .card-conditions {
+                display: flex;
+                flex: 1;
+            }
+
+            #printCard .card-conditions-list {
+                padding: 0.05in;
+                font-size: 8pt;
+                line-height: 1.3;
+            }
+
+            #printCard .checkbox-box {
+                display: inline-block;
+                width: 1em;
+            }
+
+            #printCard .card-levels {
+                width: 1.6in;
+                border-left: 1px solid #000;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0.05in;
+            }
+
+            #printCard .card-levels-title {
+                font-size: 7pt;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            #printCard .card-levels-cols {
+                display: flex;
+                flex: 1;
+                width: 100%;
+            }
+
+            #printCard .card-levels-col {
+                flex: 1;
+                display: grid;
+                grid-template-rows: 1fr auto;
+                justify-items: center;
+                text-align: center;
+                border-left: 1px solid #ccc;
+            }
+
+            #printCard .card-levels-col:first-child {
+                border-left: none;
+            }
+
+            #printCard .card-levels-num {
+                grid-row: 1;
+                align-self: center;
+                font-size: 16pt;
+                font-weight: bold;
+            }
+
+            #printCard .card-levels-label {
+                grid-row: 2;
+                align-self: end;
+                font-size: 5.5pt;
+                font-weight: bold;
+                line-height: 1.1;
+            }
+
+            #printCard .card-row-footer {
+                justify-content: space-between;
+                padding: 0 0.1in;
+            }
+
+            #printCard .card-number {
+                font-size: 28pt;
+                font-weight: bold;
+            }
+
+            #printCard .card-status-box {
+                width: 0.5in;
+                height: 0.5in;
+                flex-shrink: 0;
+            }
+
+            #printCard .card-status-box svg text {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            #printExtra {
+                width: 100%;
+                max-width: 6in;
+                margin: 0 auto;
+                box-sizing: border-box;
+                font-family: Arial, Helvetica, sans-serif;
+                color: #000;
+                font-size: 11pt;
+            }
+
+            #printExtra h2 {
+                font-size: 13pt;
+                border-bottom: 1px solid #000;
+                margin: 0 0 0.1in 0;
+                padding-bottom: 0.05in;
+            }
+
+            #printExtra .print-exercise-banner {
+                font-weight: bold;
+                color: #b00000;
+                text-align: center;
+                margin-bottom: 0.15in;
+            }
+
+            #printExtra .print-extra-row {
+                display: flex;
+                gap: 0.4in;
+                margin-bottom: 0.1in;
+            }
+
+            #printExtra .print-extra-field {
+                flex: 1;
+            }
+
+            #printExtra .print-extra-label {
+                font-weight: bold;
+                font-size: 9pt;
+            }
+
+            #printExtra .print-extra-value {
+                white-space: pre-wrap;
+            }
+        }
+
         </style>
     </head>
 
@@ -407,6 +665,9 @@
                     <input type="file" id="txtfiletoread" accept=".txt,application/json"
                         style="display: none;" />
 
+                    <input type="button" name="PrintButton" id="printButton"
+                        value="Print Card" />
+
                     <input name="testCall" type="hidden" id="testCall" value="{MsgSender}" size="14" maxlength="13" />
                 </div>
 
@@ -414,6 +675,112 @@
             </form>
 
         </section>
+
+        <div id="printSheet" class="print-only">
+        <div class="card-rotate-wrap">
+        <div id="printCard">
+            <div class="card-row card-row-top">
+                <div class="card-box">
+                    <div class="card-box-label">CO</div>
+                    <div class="card-box-value" id="print-company"></div>
+                </div>
+                <div class="card-box time">
+                    <div class="card-box-label">TIME</div>
+                    <div class="card-box-value" id="print-time"></div>
+                </div>
+                <div class="card-pnbt">
+                    <div class="card-box-label">PLACE NAME / BUILDING TYPE</div>
+                    <div class="card-box-value" id="print-pnbt"></div>
+                </div>
+            </div>
+
+            <div class="card-row card-row-location">
+                <div class="card-side-label">LOCATION</div>
+                <div class="card-box-value" id="print-location"></div>
+            </div>
+
+            <div class="card-row card-row-conditions">
+                <div class="card-conditions">
+                    <div class="card-side-label">CONDITIONS</div>
+                    <div class="card-conditions-list">
+                        <div><span class="checkbox-box" id="print-check-collapse"></span> <b>COLLAPSE</b> (circle) -
+                            <span id="print-collapse-risk-mark"></span> /
+                            <span id="print-collapse-partial-mark"></span> /
+                            <span id="print-collapse-full-mark"></span>
+                        </div>
+                        <div><span class="checkbox-box" id="print-check-fire"></span> <b>FIRE</b></div>
+                        <div><span class="checkbox-box" id="print-check-fgw"></span> <b>FUEL/GAS/WATER</b></div>
+                        <div><span class="checkbox-box" id="print-check-hazmat"></span> <b>HAZMAT</b></div>
+                        <div><span class="checkbox-box" id="print-check-landslide"></span> <b>LANDSLIDE</b></div>
+                        <div><span class="checkbox-box" id="print-check-other"></span> : <span id="print-other-desc"></span></div>
+                    </div>
+                </div>
+                <div class="card-levels">
+                    <div class="card-levels-title">LEVELS (resource needs)</div>
+                    <div class="card-levels-cols">
+                        <div class="card-levels-col">
+                            <div class="card-levels-num" id="print-levels-city"></div>
+                            <div class="card-levels-label">CITY</div>
+                        </div>
+                        <div class="card-levels-col">
+                            <div class="card-levels-num" id="print-levels-battalion"></div>
+                            <div class="card-levels-label">BATTALION</div>
+                        </div>
+                        <div class="card-levels-col">
+                            <div class="card-levels-num" id="print-levels-company"></div>
+                            <div class="card-levels-label">COMPANY</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-row card-row-actions">
+                <div class="card-side-label">ACTIONS &amp; NEEDS</div>
+                <div class="card-box-value" id="print-actions"></div>
+            </div>
+
+            <div class="card-row card-row-footer">
+                <div class="card-number">B<span id="print-cardB"></span>-<span id="print-cardID"></span></div>
+                <div class="card-status-box">
+                    <svg viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="none">
+                        <rect x="1" y="1" width="98" height="98" fill="none" stroke="#000" stroke-width="2" />
+                        <line id="status-line-closed" x1="3" y1="97" x2="97" y2="3" stroke="#000" />
+                        <line id="status-line-active" x1="3" y1="3" x2="97" y2="97" stroke="#000" />
+                        <text x="18" y="82" transform="rotate(-45 18 82)"
+                            font-size="11" font-style="italic" font-weight="bold">closed</text>
+                        <text x="18" y="24" transform="rotate(45 18 24)"
+                            font-size="11" font-style="italic" font-weight="bold">active</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div id="printExtra">
+            <div class="print-exercise-banner" id="print-exercise-banner"></div>
+            <h2>Additional Message Info (not on physical card)</h2>
+            <div class="print-extra-row">
+                <div class="print-extra-field">
+                    <div class="print-extra-label">FROM (TACTICAL / callsign):</div>
+                    <div class="print-extra-value" id="print-mycall"></div>
+                </div>
+                <div class="print-extra-field">
+                    <div class="print-extra-label">TO (Winlink address):</div>
+                    <div class="print-extra-value" id="print-tocall"></div>
+                </div>
+                <div class="print-extra-field">
+                    <div class="print-extra-label">ACS MESSAGE NUMBER:</div>
+                    <div class="print-extra-value" id="print-acsno"></div>
+                </div>
+            </div>
+            <div class="print-extra-row">
+                <div class="print-extra-field">
+                    <div class="print-extra-label">REMARKS:</div>
+                    <div class="print-extra-value" id="print-remarks"></div>
+                </div>
+            </div>
+        </div>
+        </div>
 
         <script>
 
@@ -607,6 +974,92 @@
                     loadFormInputElementsFromFile(fileToLoad);
                 }
                 e.target.value = '';
+            });
+
+            function markX(value) {
+                return value ? '☒' : '☐';
+            }
+
+            function updateStatusBox(status) {
+                const closedLine = document.getElementById('status-line-closed');
+                const activeLine = document.getElementById('status-line-active');
+
+                const thin = { width: '1.5', dash: '6 4', color: '#999' };
+                const thick = { width: '12', dash: 'none', color: '#000' };
+
+                const closedStyle = (status === 'Closed') ? thick : thin;
+                const activeStyle = (status === 'Active' || status === 'Closed') ? thick : thin;
+
+                closedLine.setAttribute('stroke-width', closedStyle.width);
+                closedLine.setAttribute('stroke-dasharray', closedStyle.dash);
+                closedLine.setAttribute('stroke', closedStyle.color);
+                activeLine.setAttribute('stroke-width', activeStyle.width);
+                activeLine.setAttribute('stroke-dasharray', activeStyle.dash);
+                activeLine.setAttribute('stroke', activeStyle.color);
+            }
+
+            function populatePrintCard() {
+                document.getElementById('print-company').textContent = document.getElementById('company').value;
+                document.getElementById('print-time').textContent = document.getElementById('Time').value;
+                document.getElementById('print-pnbt').textContent = document.getElementById('PNBT').value;
+                document.getElementById('print-location').textContent = document.getElementById('location').value;
+
+                document.getElementById('print-check-fire').textContent = markX(document.getElementById('IsFire').value);
+                document.getElementById('print-check-fgw').textContent = markX(document.getElementById('IsFGW').value);
+                document.getElementById('print-check-hazmat').textContent = markX(document.getElementById('IsHazmat').value);
+                document.getElementById('print-check-landslide').textContent = markX(document.getElementById('IsLandslide').value);
+                document.getElementById('print-check-other').textContent = markX(document.getElementById('IsOther').value);
+                document.getElementById('print-other-desc').textContent = document.getElementById('other_desc').value;
+
+                const collapseAny = document.getElementById('IsCollapse_risk').value ||
+                    document.getElementById('IsCollapse_partial').value ||
+                    document.getElementById('IsCollapse_full').value;
+                document.getElementById('print-check-collapse').textContent = markX(collapseAny);
+
+                const riskChecked = !!document.getElementById('IsCollapse_risk').value;
+                const partialChecked = !!document.getElementById('IsCollapse_partial').value;
+                const fullChecked = !!document.getElementById('IsCollapse_full').value;
+
+                const riskMarkElement = document.getElementById('print-collapse-risk-mark');
+                riskMarkElement.textContent = riskChecked ? '[RISK]' : 'RISK';
+                riskMarkElement.style.fontWeight = riskChecked ? 'bold' : 'normal';
+
+                const partialMarkElement = document.getElementById('print-collapse-partial-mark');
+                partialMarkElement.textContent = partialChecked ? '[PARTIAL]' : 'PARTIAL';
+                partialMarkElement.style.fontWeight = partialChecked ? 'bold' : 'normal';
+
+                const fullMarkElement = document.getElementById('print-collapse-full-mark');
+                fullMarkElement.textContent = fullChecked ? '[FULL]' : 'FULL';
+                fullMarkElement.style.fontWeight = fullChecked ? 'bold' : 'normal';
+
+                document.getElementById('print-levels-city').textContent = document.getElementById('levels_city').value;
+                document.getElementById('print-levels-battalion').textContent = document.getElementById('levels_battalion').value;
+                document.getElementById('print-levels-company').textContent = document.getElementById('levels_company').value;
+
+                document.getElementById('print-actions').textContent = document.getElementById('actions').value;
+
+                document.getElementById('print-cardB').textContent = document.getElementById('CardB').value;
+                document.getElementById('print-cardID').textContent = document.getElementById('CardID').value;
+
+                const selectedStatus = document.querySelector('input[name="status"]:checked');
+                updateStatusBox(selectedStatus ? selectedStatus.value : 'Pending');
+
+                document.getElementById('print-mycall').textContent = document.getElementById('myCallsign').value;
+                document.getElementById('print-tocall').textContent = document.getElementById('toCallsign').value;
+                document.getElementById('print-acsno').textContent = document.getElementById('ACSno').value;
+                document.getElementById('print-remarks').textContent = document.getElementById('remarks').value;
+                document.getElementById('print-exercise-banner').textContent =
+                    document.getElementById('IsExer').value ? IsAnExerciseText : '';
+            }
+
+            function printCard() {
+                applyCardNumberDefaults();
+                populatePrintCard();
+                window.print();
+            }
+
+            document.getElementById('printButton').addEventListener('click', () => {
+                printCard();
             });
 
             // constant values for repeated use
