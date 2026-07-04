@@ -627,11 +627,6 @@
                            name="actions" id="actions"></textarea>
                 </div>
                 <div class="input-container">
-                    <label for="remarks"><b>REMARKS:<br></b></label>
-                    <textarea rows="5" cols="55"
-                           name="remarks" id="remarks"></textarea>
-                </div>
-                <div class="input-container">
                     <label for="cardid">SFD incident card number:</label>
                     <font size=+3><b>B</b></font><input type="text" name="cardB"
                         id="CardB" size="2" maxlength="2" value=""/>
@@ -651,6 +646,17 @@
 
                     <label for="closed">&nbsp;&nbsp; Closed (full X):</label>
                     <input type="radio" name="status" value='Closed' />
+                </div>
+
+                <br />
+                <hr />
+
+                <div class="msgHeaderTitle">Message Footer</div>
+
+                <div class="input-container">
+                    <label for="remarks"><b>ADDITIONAL INFORMATION OR REMARKS:<br></b></label>
+                    <textarea rows="5" cols="55"
+                           name="remarks" id="remarks"></textarea>
                 </div>
 
                 <hr />
@@ -777,6 +783,12 @@
                 <div class="print-extra-field">
                     <div class="print-extra-label">REMARKS:</div>
                     <div class="print-extra-value" id="print-remarks"></div>
+                </div>
+            </div>
+            <div class="print-extra-row">
+                <div class="print-extra-field">
+                    <div class="print-extra-label">PRINTED:</div>
+                    <div class="print-extra-value" id="print-timestamp"></div>
                 </div>
             </div>
         </div>
@@ -1050,6 +1062,11 @@
                 document.getElementById('print-remarks').textContent = document.getElementById('remarks').value;
                 document.getElementById('print-exercise-banner').textContent =
                     document.getElementById('IsExer').value ? IsAnExerciseText : '';
+
+                const printTime = new Date();
+                const utcTimeStr = printTime.toISOString().replace('T', ' ').replace(/\.\d+Z$/, ' UTC');
+                const localTimeStr = printTime.toLocaleString();
+                document.getElementById('print-timestamp').textContent = `${utcTimeStr}  (${localTimeStr} local)`;
             }
 
             function printCard() {

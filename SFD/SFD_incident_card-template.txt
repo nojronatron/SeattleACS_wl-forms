@@ -39,13 +39,12 @@ ACTIONS & NEEDS:
 <var actions>
 
 ------------------------
-REMARKS:
-<var remarks>
-
-------------------------
 CARD NUMBER: B<var cardB>-<var cardid>   Status: <var Status>
 
 ========================
+
+ADDITIONAL INFORMATION OR REMARKS:
+<var remarks>
 
 Sent by: <var mycall>
 ---
