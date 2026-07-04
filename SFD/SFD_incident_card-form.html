@@ -218,7 +218,7 @@
     <body>
         <section id="close">
             <form
-                onsubmit="return confirm('To complete your form submission, click OK and close the browser tab. You will return to the new message window so you can post your message to the outbox.');"
+                onsubmit="return confirmSubmit();"
                 method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
                 <label class="formTitleHeader">Seattle Fire Department Incident Card</label>
 
@@ -455,13 +455,24 @@
                 return dateTimeStamp;
             }
 
-            function getCardDesignation() {
-                let cardB = document.getElementById('CardB').value.trim();
-                let cardID = document.getElementById('CardID').value.trim();
-                if (!cardB) {
-                    return 'BX-XXX';
+            function applyCardNumberDefaults() {
+                let cardBElement = document.getElementById('CardB');
+                let cardIDElement = document.getElementById('CardID');
+                if (!cardBElement.value.trim()) {
+                    cardBElement.value = 'X';
                 }
-                return `B${cardB}-${cardID || 'XXX'}`;
+                if (!cardIDElement.value.trim()) {
+                    cardIDElement.value = 'XXX';
+                }
+            }
+
+            function getCardDesignation() {
+                return `B${document.getElementById('CardB').value}-${document.getElementById('CardID').value}`;
+            }
+
+            function confirmSubmit() {
+                applyCardNumberDefaults();
+                return confirm('To complete your form submission, click OK and close the browser tab. You will return to the new message window so you can post your message to the outbox.');
             }
 
             function createJsonObjectFromFormElements() {
@@ -502,6 +513,8 @@
             }
 
             function saveFormInputElementsToFile() {
+                applyCardNumberDefaults();
+
                 let dateTimeStamp = getDateTimeStamp();
                 let cardDesignation = getCardDesignation();
                 let filenameToSaveAs = `SFD_${cardDesignation}_${dateTimeStamp}.txt`;
