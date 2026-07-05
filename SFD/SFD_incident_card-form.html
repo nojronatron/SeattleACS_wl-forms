@@ -490,18 +490,18 @@
                 <div class="msgHeaderTitle">Message Header (for Winlink submission)</div>
 
                 <div class="input-container">
-                    <label for="tocall">To (Winlink address - callsign or email):</label>
+                    <label for="tocall"><b>To</b> (Winlink address - callsign or email):</label>
                     <input type="text" name="tocall" id="toCallsign"
                         placeholder="" value=""/>
                 </div>
                 <div class="input-container">
-                    <label for="acsno">ACS Message Number (e.g. STN00-0001):</label>
+                    <label for="acsno"><b>ACS Message Number</b> (e.g. STN00-0001):</label>
                     <input type="text" name="acsno" id="ACSno"
                         placeholder="" value=""/>
                 </div>
 
                 <div class="input-container">
-                    <label for="Exer">This is an exercise:</label>
+                    <label for="Exer"><b>This is an exercise</b>:</label>
                     <input type="checkbox" name="Exer" value=""
                      onclick="if(document.getElementById('IsExer').value =='')
                      {document.getElementById('IsExer').value = IsAnExerciseText}
@@ -627,8 +627,8 @@
                            name="actions" id="actions"></textarea>
                 </div>
                 <div class="input-container">
-                    <label for="cardid">SFD incident card number:</label>
-                    <font size=+3><b>B</b></font><input type="text" name="cardB"
+                    <label for="cardid"><b>SFD incident card number</b>:</label>
+                    <font size=+3><b style="position: relative; top: 0.15em;">B</b></font><input type="text" name="cardB"
                         id="CardB" size="2" maxlength="2" value=""/>
                     -<input type="text" name="cardid" id="CardID" size="3"
                         maxlength="3" value=""/>
@@ -637,7 +637,7 @@
 
                     <div class="input-container">
 
-                    <label for="pending">STATUS -- &nbsp;&nbsp; Pending (empty box):</label>
+                    <label for="pending"><b>STATUS:</b> &nbsp;&nbsp; Pending (empty box):</label>
                     <input type="radio" name="status" value='Pending'
                     checked />
 
