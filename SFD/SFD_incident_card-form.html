@@ -134,6 +134,21 @@
             width: 80%;
         }
 
+        #location,
+        #actions {
+            width: 100%;
+            max-width: 8.25in;
+            box-sizing: border-box;
+            line-height: 1.3;
+        }
+
+        #PNBT {
+            width: 100%;
+            max-width: 4.125in;
+            box-sizing: border-box;
+            line-height: 1.3;
+        }
+
 
         input {
             padding: 0.2em;
@@ -324,6 +339,11 @@
                 font-size: 13pt;
             }
 
+            #printCard .card-pnbt .card-box-value.small-text {
+                font-size: 10pt;
+                line-height: 1.1;
+            }
+
             #printCard .card-pnbt .card-box-label {
                 font-size: 8pt;
                 text-align: right;
@@ -347,6 +367,12 @@
                 flex: 1;
                 padding: 0.05in;
                 font-size: 12pt;
+            }
+
+            #printCard .card-row-location .card-box-value.small-text,
+            #printCard .card-row-actions .card-box-value.small-text {
+                font-size: 8pt;
+                line-height: 1.1;
             }
 
             #printCard .card-conditions {
@@ -542,13 +568,13 @@
                 <hr />
                 <div class="input-container">
                     <label for="PNBT">PLACE NAME / BUILDING TYPE:</label>
-                    <textarea rows="1" cols="40" name="PlaceNameBldgType" id="PNBT"
+                    <textarea rows="2" name="PlaceNameBldgType" id="PNBT"
                         value=""></textarea>
                 </div>
 
                  <div class="input-container">
                     <label for="location"><b>LOCATION:</b><br></label>
-                    <textarea rows="3" cols="55"
+                    <textarea rows="4"
                            name="location" id="location"></textarea>
                 </div>
                 <hr />
@@ -641,7 +667,7 @@
                 <hr />
                 <div class="input-container">
                     <label for="actions"><b>ACTIONS & NEEDS:<br></b></label>
-                    <textarea rows="5" cols="55"
+                    <textarea rows="6"
                            name="actions" id="actions"></textarea>
                 </div>
                 <div class="input-container">
@@ -1033,6 +1059,54 @@
                 return value ? '☒' : '☐';
             }
 
+            function countTextareaLines(textarea) {
+                const style = getComputedStyle(textarea);
+                const lineHeight = parseFloat(style.lineHeight);
+                const paddingTop = parseFloat(style.paddingTop);
+                const paddingBottom = parseFloat(style.paddingBottom);
+                const originalHeight = textarea.style.height;
+                textarea.style.height = '0px';
+                const contentHeight = textarea.scrollHeight - paddingTop - paddingBottom;
+                textarea.style.height = originalHeight;
+                return Math.max(1, Math.round(contentHeight / lineHeight));
+            }
+
+            const locationField = document.getElementById('location');
+            const MAX_LOCATION_LINES = 4;
+            let lastValidLocationValue = locationField.value;
+
+            locationField.addEventListener('input', () => {
+                if (countTextareaLines(locationField) > MAX_LOCATION_LINES) {
+                    locationField.value = lastValidLocationValue;
+                } else {
+                    lastValidLocationValue = locationField.value;
+                }
+            });
+
+            const actionsField = document.getElementById('actions');
+            const MAX_ACTIONS_LINES = 9;
+            let lastValidActionsValue = actionsField.value;
+
+            actionsField.addEventListener('input', () => {
+                if (countTextareaLines(actionsField) > MAX_ACTIONS_LINES) {
+                    actionsField.value = lastValidActionsValue;
+                } else {
+                    lastValidActionsValue = actionsField.value;
+                }
+            });
+
+            const pnbtField = document.getElementById('PNBT');
+            const MAX_PNBT_LINES = 2;
+            let lastValidPnbtValue = pnbtField.value;
+
+            pnbtField.addEventListener('input', () => {
+                if (countTextareaLines(pnbtField) > MAX_PNBT_LINES) {
+                    pnbtField.value = lastValidPnbtValue;
+                } else {
+                    lastValidPnbtValue = pnbtField.value;
+                }
+            });
+
             function updateStatusBox(status) {
                 const closedLine = document.getElementById('status-line-closed');
                 const activeLine = document.getElementById('status-line-active');
@@ -1054,8 +1128,12 @@
             function populatePrintCard() {
                 document.getElementById('print-company').textContent = document.getElementById('company').value;
                 document.getElementById('print-time').textContent = document.getElementById('Time').value;
-                document.getElementById('print-pnbt').textContent = document.getElementById('PNBT').value;
-                document.getElementById('print-location').textContent = document.getElementById('location').value;
+                const printPnbt = document.getElementById('print-pnbt');
+                printPnbt.textContent = pnbtField.value;
+                printPnbt.classList.toggle('small-text', countTextareaLines(pnbtField) > 1);
+                const printLocation = document.getElementById('print-location');
+                printLocation.textContent = locationField.value;
+                printLocation.classList.toggle('small-text', countTextareaLines(locationField) > 3);
 
                 document.getElementById('print-check-fire').textContent = markX(document.getElementById('IsFire').value);
                 document.getElementById('print-check-fgw').textContent = markX(document.getElementById('IsFGW').value);
@@ -1089,7 +1167,9 @@
                 document.getElementById('print-levels-battalion').textContent = document.getElementById('levels_battalion').value;
                 document.getElementById('print-levels-company').textContent = document.getElementById('levels_company').value;
 
-                document.getElementById('print-actions').textContent = document.getElementById('actions').value;
+                const printActions = document.getElementById('print-actions');
+                printActions.textContent = actionsField.value;
+                printActions.classList.toggle('small-text', countTextareaLines(actionsField) > 6);
 
                 document.getElementById('print-cardB').textContent = document.getElementById('CardB').value;
                 document.getElementById('print-cardID').textContent = document.getElementById('CardID').value;
