@@ -13,11 +13,27 @@ This image has better resolution, note the faint writing:
 
 ![Appendix 3 - Incident Card (example)](images/IMG_1217.jpeg)
 
-## Draft of 2026-05-04
+
+A first pass at a Winlink form was presented at the May 2026 ACS meeting,
+resulting in a lot of great feedback, listed in
+[Issue #4](https://github.com/rjleveque/SeattleACS_wl-forms/issues/4).
+
+
+
+## Draft of 2026-07-09
+
+A greatly improved version was generated with a lot of
+help from Claude Code.
 
 ### Try out the web browser version
 
-You can type into [this live sample version](https://faculty.washington.edu/rjl/misc/SFD_incident_card-form.html).  The Submit, and Load buttons do not do anything, but the Save button should save a file to your local computer (which could later be transferred to Winlink).
+You can type into [this live sample version](https://faculty.washington.edu/rjl/hamradio/SFD_incident_card-form.html).  Note that the Save button should save a file to your local computer (which could later be transferred to Winlink), and
+the Load button now works to reload data.
+
+There is also now a "Print Card" button to print out the
+data in a form that can be cut out to produce a card with
+the same shape and general look as the physical cards.
+
 
 ### Install in Winlink
 
@@ -25,57 +41,19 @@ To try it in Winlink, copy these files into your Winlink Express `Global Folders
 
 - SFD_incident_card-form.html
 - SFD_incident_card-template.txt
+- SFD_incident_card-viewer.html
 
 Then compose a new message, selecting the template under `General Templates`.
 
 This should open a browser window that looks the same as the sample web version above, but if opened from within Winlink the "Submit" button should work to translate the html form information into a Winlink message, which you can then "Post to Outbox".
 
-The "Save Data" button should work too.
+The Viewer version allows an incoming Winlink message
+based on this form to be nicely displayed in a browser.
+The "Print Card" button also appears in this view.
 
-Also not yet implemented is a Viewer version that allows an incoming Winlink message based on this form to be nicely displayed in a browser.  But a recipient will see the email message text, as illustrated below.
+## More details
 
-### Form input
-
-![Form input example](images/draft2_form.jpg)
-
-### Resulting Winlink message
-
-![Resulting Winlink Message example](images/SFDversion3.png)
-[cropped]
-
-### What gets saved
-
-If you click "Save Data", a text file with a name like
-`SFD-card-saved-data-2026-05-04-21_23.txt` will be saved, containing
-
-```json
-{
-  "MyCallsign": "STATION 38 / KJ7WLT",
-  "ToCallsign": "W7ACS",
-  "ACSno": "STN38-0001",
-  "IsExer": "*** THIS IS AN EXERCISE ***",
-  "company": "L3",
-  "Time": "0915",
-  "PlaceNameBuildingType": "McDonald International School",
-  "location": "Latona Ave NE and NE 55th St.",
-  "IsCollapse_risk": "",
-  "IsCollapse_partial": "X",
-  "IsCollapse_full": "",
-  "IsFGW": "",
-  "IsFire": "X",
-  "IsHazmat": "",
-  "IsLandslide": "",
-  "IsOther": "",
-  "other_desc": "",
-  "levels_city": "",
-  "levels_battalion": "",
-  "levels_company": "",
-  "actions": "None at this time.\nContinuing route.",
-  "CardB": "5",
-  "CardID": "001",
-  "Status": "pending"
-}
-```
+To appear.
 
 ## Notes
 

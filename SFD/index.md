@@ -6,23 +6,25 @@ for background information and some screen shots.
 
 ## Try it out
 
-**Note:**
-This form was recently updated but the documentation has not been yet!
-There is now a viewer and also a "print card" option to create a pdf file
-that mimics the physical card.
 
 [CLICK HERE](https://rjleveque.github.io/SeattleACS_wl-forms/SFD/SFD_incident_card-form.html)
 to open an html form in your browser that you can try filling out.
 
-In this version the "Submit" and "Load Data" buttons do not work, but you
-can "Save Data" and it should create a small JSON (JavaScript Object Notation)
+
+The "Save Data" button should work and it should create a small JSON (JavaScript Object Notation)
 data file and save it to your
 own computer with a filename based on the date and time.  Later you could
 upload one or more of these to a computer running Winlink for submission.
 
+The "Load Data" button now works too.
+
+There is also now a "Print Card" button to print out the
+data in a form that can be cut out to produce a card with
+the same shape and general look as the physical cards.
+
 ## Installing as a custom form in Winlink
 
-To use this form in Winlink, you need to copy two files to the
+To use this form in Winlink, you need to copy three files to the
 proper directory\
  [`RMS Express\Global Folders\Templates`]:
 
@@ -33,16 +35,17 @@ proper directory\
 - `SFD_incident_card-template.txt` is a file that tells Winlink how to
   compose a Winlink message based on the data in the form.
 
-Eventually a third file will also be included:
 
-- `SFD_incident_card-viewer.html` will be used to take an *incoming* Winlink
+- `SFD_incident_card-viewer.html` is used to take an *incoming* Winlink
   message using this form and reformat it as a nice webpage for viewing.
   Even without this form, you can see all the information in the main body
   of the incoming Winlink message.
 
 You can download these files from the [Github
 repository](https://github.com/rjleveque/SeattleACS_wl-forms/tree/main/SFD)
-for testing, but they are not fully functional yet.
+for testing, but this is still work in progress.
+
+There is also
 Versions for members to use will be provided later, along with more detailed instructions.
 
 
