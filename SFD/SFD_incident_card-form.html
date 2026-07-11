@@ -679,7 +679,7 @@
                     <label for="update-existing"><b>UPDATE:</b></label>
                     <input type="checkbox" name="update-existing" value="" id="UpdateExisting" class="clickable-checkbox" />
                     <input type="hidden" name="IsUpdate" value="" id="IsUpdateExisting" />
-                    <label for="update-existing">check if this is an update to existing card</label>
+                    <label for="IsUpdate">check if this is an update to existing card</label>
                 </div>
 
                 <br />
@@ -703,7 +703,6 @@
                     <input type="button" name="SaveButton" id="saveButton"
                         value="Save Data" />
                     <input type="button" name="LoadButton" id="loadButton"
-                        onclick="document.getElementById('txtfiletoread').click();"
                         value="Load Data" />
                     <input type="file" id="txtfiletoread" accept=".txt,application/json"
                         style="display: none;" />
@@ -914,7 +913,7 @@
                     IsCollapse_risk: document.getElementById('IsCollapseRisk').value,
                     IsCollapse_partial: document.getElementById('IsCollapsePartial').value,
                     IsCollapse_full: document.getElementById('IsCollapseFull').value,
-                    IsFGW: document.getElementById('IsFuelGasWater').value,
+                    IsFuelGasWater: document.getElementById('IsFuelGasWater').value,
                     IsFire: document.getElementById('IsFire').value,
                     IsHazmat: document.getElementById('IsHazmat').value,
                     IsLandslide: document.getElementById('IsLandslide').value,
@@ -964,8 +963,11 @@
             });
 
             function setCheckboxFromHiddenValue(checkboxName, hiddenId, value) {
+                // console.log(`setCheckboxFromHiddenValue params => checkboxName:${checkboxName}; hiddenId: ${hiddenId}; value: ${value}`);
                 document.getElementById(hiddenId).value = value ?? '';
-                document.querySelector(`input[name="${checkboxName}"]`).checked = !!value;
+                // document.querySelector(`input[name="${checkboxName}"]`).checked = !!value;
+                document.querySelector(`input[name="${checkboxName}"]`).checked =
+                    document.getElementById(hiddenId).value == '' ? false : true;
             }
 
             function populateFormFromJsonObject(o) {
@@ -998,7 +1000,7 @@
 
                 document.getElementById('CardB').value = o.CardB ?? '';
                 document.getElementById('CardID').value = o.CardID ?? '';
-                setCheckboxFromHiddenValue('update', 'IsUpdate', o.IsUpdate);
+                setCheckboxFromHiddenValue('update-existing', 'IsUpdateExisting', o.IsUpdate);
 
                 if (o.Status) {
                     const radio = document.querySelector(`input[name="status"][value="${o.Status}"]`);
@@ -1196,9 +1198,9 @@
 
             for (const el of clickableCheckboxElements) {
                 if (el.id == "IsExer") {
-                    console.log("Detected IsExer element! Adding Event Listener.");
+                    // console.log("Detected IsExer element! Adding Event Listener.");
                     el.addEventListener("click", () => {
-                        console.log(`checkbox ${el.getAttribute("id")} clicked`);
+                        // console.log(`checkbox ${el.getAttribute("id")} clicked`);
                         if (el.value == '') {
                             el.value = IsAnExerciseText;
                         } else {
@@ -1207,7 +1209,7 @@
                     });
                 } else {
                     el.addEventListener("click", () => {
-                        console.log(`checkbox ${el.getAttribute("id")} clicked`);
+                        // console.log(`checkbox ${el.getAttribute("id")} clicked`);
                         setCheckboxState(el.getAttribute("id"));
                     });
                 }
@@ -1215,14 +1217,14 @@
         }
 
         function setCheckboxState(elementId) {
-            console.log(`setCheckboxState function called with arg ${elementId}. Checkbox state is ${document.getElementById(elementId).checked}`);
+            // console.log(`setCheckboxState function called with arg ${elementId}. Checkbox state is ${document.getElementById(elementId).checked}`);
             let hiddenElementId = `Is${elementId}`;
 
             if (document.getElementById(elementId).checked) {
-                console.log(`setting hiddenElementId ${hiddenElementId} to X`);
+                // console.log(`setting hiddenElementId ${hiddenElementId} to X`);
                 document.getElementById(hiddenElementId).setAttribute('value', 'X');
             } else {
-                console.log(`setting hiddenElementId ${hiddenElementId} to (space)`);
+                // console.log(`setting hiddenElementId ${hiddenElementId} to (space)`);
                 document.getElementById(hiddenElementId).setAttribute('value', '');
             }
         }
@@ -1240,6 +1242,10 @@
             }
         }
         
+        document.getElementById('loadButton').addEventListener('click', () => {
+            document.getElementById('txtfiletoread').click();
+        });
+
         window.addEventListener('load', (event) => {
             console.log('Page is loaded');
             applyCardNumberDefaults();
